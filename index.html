@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <title>SeerBit Simple Checkout</title>
+    <script src="https://checkout.seerbitapi.com/api/v2/seerbit.js"></script>
+  </head>
+ <body>
+    <button onclick="paywithSeerbit()">Pay Now</button>
+
+    <script type ="text/javascript">
+      function paywithSeerbit() {
+        SeerbitPay ({
+        "public_key": "SBPUBK_RTPSWUYSGCO8ICAFV07CZLNIHWZCQCNR", //replace with your public key
+        "tranref": new Date().getTime(), // payment reference
+        "currency": "NGN",
+        "country": "NG",
+        "amount": "10.00",
+        "email": "bamgboyemaryann@gmail.com",
+        "mobile_no": "09015576494", // Mobile Number
+        "productId": "", // Product ID
+        "description": "", // Product Description
+        "setAmountByCustomer": false, //optional field. Set to true to allow customer set the amount
+        "full_name": "Maryann Bamgboye", //optional
+        "tokenize" : false, // set to true to allow token capture
+        // "planId" : "123456abcd", // subcription plan id.
+        // "pocketReference" : "Ref1234", // pocket reference number.
+        "vendorId" : "DYK2U71FR1OQOEZ", // Vendor ID.
+        "callbackurl": "http://yourdomain.com",
+        },
+        function callback(response, closeModal) {
+         console.log(response) //response of transaction
+        },
+        function close(close) {
+         console.log(close) //transaction close
+        })
+        }
+    </script>
+
+  </body>
+</html>
